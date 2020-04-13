@@ -8,6 +8,9 @@ function App() {
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
 
+  const homeTeam = 'Tigers'
+  const awayTeam = 'Lions'
+
   const homeTD = event => {
     setHomeScore(homeScore + 7)
   }
@@ -28,30 +31,30 @@ function App() {
     <div className="container">
       <section className="scoreboard">
         <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">Lions</h2>
+          <div className="away">
+            <h2 className="away__name">{awayTeam}</h2>
 
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-  <div className="home__score">{homeScore}</div>
+  <div className="away__score">{awayScore}</div>
           </div>
           <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">{awayScore}</div>
+          <div className="home">
+            <h2 className="home__name">{homeTeam}</h2>
+            <div className="home__score">{homeScore}</div>
           </div>
         </div>
         <BottomRow />
       </section>
       <section className="buttons">
-        <div className="homeButtons">
+        <div className="awayButtons">
 
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown" onClick={homeTD}>Home Touchdown</button>
-          <button className="homeButtons__fieldGoal" onClick={homeFG}>Home Field Goal</button>
+          <button className="awayButtons__touchdown" onClick={awayTD}>{awayTeam} Touchdown</button>
+          <button className="awayButtons__fieldGoal" onClick={awayFG}>{awayTeam} Field Goal</button>
         </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown" onClick={awayTD}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal" onClick={awayFG}>Away Field Goal</button>
+        <div className="homeButtons">
+          <button className="homeButtons__touchdown" onClick={homeTD}>{homeTeam} Touchdown</button>
+          <button className="homeButtons__fieldGoal" onClick={homeFG}>{homeTeam} Field Goal</button>
         </div>
       </section>
     </div>
